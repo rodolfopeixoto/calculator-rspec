@@ -1,12 +1,17 @@
 require 'minitest/autorun'
 
 class Calculator
+    attr_reader :digits
   def initialize(digits_string)
-      @digits = digits_string.split(',').map { |n| n.to_i }
+      @digits = parse_input(digits_string)
   end
   
   def sum
-      @digits.inject(:+)
+      digits.inject(:+)
+  end
+  
+  def parse_input(str)
+    str.split(',').map { |n| n.to_i }
   end
 end
 
