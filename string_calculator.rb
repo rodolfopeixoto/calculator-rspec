@@ -1,7 +1,13 @@
 require 'minitest/autorun'
 
 class Calculator
-
+  def initialize(digits_string)
+      @digits = digits_string.split(',').map { |n| n.to_i }
+  end
+  
+  def sum
+      @digits.inject(:+)
+  end
 end
 
 describe Calculator do
